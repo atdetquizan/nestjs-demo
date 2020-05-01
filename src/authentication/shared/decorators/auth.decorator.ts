@@ -1,0 +1,8 @@
+import { createParamDecorator, Logger, ExecutionContext } from '@nestjs/common';
+
+export const Auth = createParamDecorator(
+    (data: unknown, ctx: ExecutionContext) => {
+        const request = ctx.switchToHttp().getRequest();
+        return request.auth;
+    },
+);
